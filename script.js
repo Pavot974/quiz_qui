@@ -43,15 +43,6 @@ document.getElementById("startButton").addEventListener("click", startQuiz);
 document.getElementById("submitAnswerButton").addEventListener("click", submitAnswer);
 document.getElementById("restartButton").addEventListener("click", restartQuiz);
 
-selectedQuestions = [];
-    while (selectedQuestions.length < totalQuestions) {
-        const randomIndex = Math.floor(Math.random() * questionsCouple.length);
-        const question = questionsCouple[randomIndex];
-        if (!selectedQuestions.includes(question)) {
-            selectedQuestions.push(question);
-        }
-    }
-
 function startQuiz() {
   document.getElementById("quizContainer").style.display = "block";
   document.getElementById("resultsContainer").style.display = "none";
@@ -62,6 +53,14 @@ function startQuiz() {
   currentQuestionIndex = 0;
   displayQuestion();
 }
+ selectedQuestions = [];
+    while (selectedQuestions.length < totalQuestions) {
+        const randomIndex = Math.floor(Math.random() * questionsCouple.length);
+        const question = questionsCouple[randomIndex];
+        if (!selectedQuestions.includes(question)) {
+            selectedQuestions.push(question);
+        }
+    }
 
 function displayQuestion() {
   if (currentQuestionIndex < totalQuestions) {
